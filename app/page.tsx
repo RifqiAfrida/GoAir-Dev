@@ -1,65 +1,188 @@
-import Image from "next/image";
+"use client";
+import Link from "next/link";
+import styles from "./style/LandingPage.module.css";
 
-export default function Home() {
+const benefits = [
+  {
+    title: "Vessel Owner Open Position",
+    desc: "Vessel owners can display and offer their ships according to their capacity and position at the port.",
+    icon: "🚢",
+  },
+  {
+    title: "Vessel Monitoring",
+    desc: "Ship owners and cargo owners can monitor business processes and track ship & goods position in real time.",
+    icon: "📡",
+  },
+  {
+    title: "Event Notifications",
+    desc: "Receive notifications on all activities so you never miss an opportunity.",
+    icon: "🔔",
+  },
+  {
+    title: "Charterer Enquiry",
+    desc: "Cargo owners can search vessels by capacity and nearest location.",
+    list: [
+      "Freight charter",
+      "Time charter",
+      "Contract of Affreightment",
+    ],
+    icon: "⚓",
+  },
+  {
+    title: "Contract Management",
+    desc: "Instant cargo-to-ship matching, freight trading, and contract management solution.",
+    icon: "📄",
+  },
+];
+
+
+export default function LandingPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      {/* Navbar */}
+      <nav className={styles.navbar}>
+        <div className={styles.navLeft}>
+          <span className={styles.logo}>GoAir</span>
+        </div>
+
+        <div className={styles.navRight}>
+          <Link href="/login" className={styles.navLink}>
+            Login
+          </Link>
+        </div>
+      </nav>
+
+      {/* Landing Page */}
+      <main className={styles.main}>
+        {/* Section kiri */}
+        <div className={styles.leftSection}>
+          <h1 className={styles.title}>GoAir</h1>
+          <p className={styles.subtitle}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure unde
+            veniam at, deleniti mollitia dolore quae aperiam delectus? Optio
+            maiores earum adipisci voluptatum exercitationem doloremque maxime
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Section kanan */}
+        <div className={styles.rightSection}>
+          <div className={styles.slider}>
+            <img src="/img/broker.svg" />
+            <img src="/img/cargo.svg" />
+            <img src="/img/ship-owner.svg" />
+          </div>
         </div>
       </main>
+
+      {/* Features */}
+      <section className={styles.features}>
+        <div className={styles.featureBox}>
+          <div className={styles.featureImage}>
+            <img src="/img/broker.svg" alt="Broker" />
+          </div>
+          <h3>Broker</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Necessitatibus, unde explicabo in natus cumque harum nam alias
+            veniam ex porro recusandae doloribus distinctio totam soluta!
+          </p>
+        </div>
+
+        <div className={styles.featureBox}>
+          <div className={styles.featureImage}>
+            <img src="/img/cargo.svg" alt="Charter" />
+          </div>
+          <h3>Charter Management</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+            doloremque itaque illum corporis incidunt recusandae dolorem.
+          </p>
+        </div>
+
+        <div className={styles.featureBox}>
+          <div className={styles.featureImage}>
+            <img src="/img/ship-owner.svg" alt="Ship Owner" />
+          </div>
+          <h3>Ship Owner</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. A earum
+            nesciunt eius ratione corrupti fugit accusamus.
+          </p>
+        </div>
+      </section>
+
+      {/* Benefits Website */}
+      <section className={styles.benefits}>
+        <h2 className={styles.benefitsTitle}>
+          Benefit Using <span>GoAir</span>
+        </h2>
+
+        <div className={styles.benefitsGrid}>
+          {benefits.map((item, index) => (
+            <div key={index} className={styles.benefitItem}>
+              <div className={styles.benefitIcon}>{item.icon}</div>
+
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+
+                {item.list && (
+                  <ul>
+                    {item.list.map((li, i) => (
+                      <li key={i}>{li}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className={styles.footer}>
+        <div className={styles.footerTop}>
+          {/* Logo / Brand */}
+          <div className={styles.footerCol}>
+            <h3 className={styles.footerLogo}>GoAir</h3>
+            <p className={styles.footerDesc}>
+              Integrated digital platform for charter, broker, and ship owner
+              management.
+            </p>
+          </div>
+
+          {/* Contact */}
+          <div className={styles.footerCol}>
+            <h4>Contact Us</h4>
+            <ul>
+              <li>Jl. Merpati No. 12, Jakarta</li>
+              <li>+62 812-3456-7890</li>
+              <li>info@goaircms.com</li>
+            </ul>
+          </div>
+
+          {/* Links */}
+          <div className={styles.footerCol}>
+            <h4>Legal</h4>
+            <ul>
+              <li>
+                <a href="#">Terms & Conditions</a>
+              </li>
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#">Ship Owner Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className={styles.footerBottom}>
+          © {new Date().getFullYear()} GoAir. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }

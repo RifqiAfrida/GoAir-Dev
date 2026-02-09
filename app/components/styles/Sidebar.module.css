@@ -1,0 +1,29 @@
+.sidebar {
+ width: 240px;
+ background: #ffffff;
+ color: #000000;
+ padding: 20px;
+ border-right: 1px solid #e5e7eb;
+}
+
+.title {
+ margin-bottom: 24px;
+ font-weight: 600;
+}
+
+.menu {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+
+.menuItem {
+ padding: 10px 8px;
+ cursor: pointer;
+ border-radius: 6px;
+ transition: background 0.2s ease;
+}
+
+.menuItem:hover {
+ background: #f3f4f6;
+}
